@@ -1,4 +1,4 @@
-for i in $(seq 1 25);
+for i in $(seq 1 12);
 do
     if [ $i -lt 10 ];
     then
