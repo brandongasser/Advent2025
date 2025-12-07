@@ -123,3 +123,21 @@ export function gcd(x: number, y: number): number {
   }
   return gcd(y, x % y);
 }
+
+/**
+ * returns the factors of a number
+ * @param x number to get the factors for
+ * @returns factors of the number
+ */
+export function factors(x: number): number[] {
+  const result: number[] = [];
+
+  for (let i = 0; i <= Math.sqrt(x); i++) {
+    if (x % i === 0) {
+      result.push(i);
+      result.push(x / i);
+    }
+  }
+
+  return result.sort((a, b) => a - b);
+}

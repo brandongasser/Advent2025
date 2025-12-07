@@ -99,4 +99,14 @@ describe('Utils', () => {
       expect(result).toEqual(6);
     });
   });
+
+  describe('factors', () => {
+    it('should return the factors of a number', () => {
+      const expected = [1, 2, 3, 4, 6, 12];
+
+      const actual = Utils.factors(12);
+
+      expect(actual).toEqual(expected);
+    })
+  })
 });
