@@ -1,13 +1,8 @@
-import { neighbors } from './common';
+import { sum } from '../utils/utils';
+import { convertToAdjacentCountMap } from './common';
 
 export function part1(input: string[]): number {
-  let count = 0;
-  for (let i = 0; i < input.length; i++) {
-    for (let j = 0; j < input[i].length; j++) {
-      if (input[i][j] === '@' && neighbors(input, i, j).filter(x => x === '@').length < 4) {
-        count++;
-      }
-    }
-  }
-  return count;
+  const adjacentCountMap = convertToAdjacentCountMap(input);
+
+  return sum(adjacentCountMap.map(line => line.filter(n => n < 4).length));
 }

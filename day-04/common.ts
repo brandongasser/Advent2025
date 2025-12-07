@@ -15,3 +15,15 @@ export function neighbors(map: string[], row: number, col: number): string[] {
 
   return result;
 }
+
+export function convertToAdjacentCountMap(map: string[]): number[][] {
+  const result: number[][] = [];
+  for (let i = 0; i < map.length; i++) {
+    const row: number[] = [];
+    for (let j = 0; j < map[0].length; j++) {
+      row.push(map[i][j] === '@' ? neighbors(map, i, j).filter(c => c === '@').length : 1000000);
+    }
+    result.push(row);
+  }
+  return result;
+}
