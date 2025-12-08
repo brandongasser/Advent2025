@@ -1,0 +1,1 @@
+export type MapSpace = 'empty' | 'splitter' | 'beam';
