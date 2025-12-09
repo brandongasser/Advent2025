@@ -1,7 +1,7 @@
-import { Heap } from "./common";
+import { groups, Heap, replaceInList } from "./common";
 
 export function findConnections(boxPositions: [number, number, number][], connectionCount: number): [number, number, number][] {
-  const connections: Heap = new Heap();
+  const connections: Heap = new Heap(false);
 
   for (let i = 0; i < boxPositions.length - 1; i++) {
     for (let j = i + 1; j < boxPositions.length; j++) {
@@ -20,29 +20,6 @@ export function findConnections(boxPositions: [number, number, number][], connec
   }
 
   return connections.asList();
-}
-
-export function replaceInList(list: number[], numToReplace: number, newNum: number) {
-  for (let i = 0; i < list.length; i++) {
-    if (list[i] === numToReplace) {
-      list[i] = newNum;
-    }
-  }
-}
-
-export function groups(list: number[]): number[][] {
-  const result: number[][] = [];
-  let current: number[] = [];
-  for (let num of list) {
-    if (!current.length || current[0] === num) {
-      current.push(num);
-    } else {
-      result.push(current);
-      current = [num];
-    }
-  }
-  result.push(current);
-  return result;
 }
 
 export function part1(input: [number, number, number][], testMode=false): number {

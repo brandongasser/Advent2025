@@ -55,31 +55,4 @@ describe('Day 8 Part 1', () => {
 
   });
 
-  describe('replaceInList', () => {
-
-    it('should replace all instances of a number with the new number', () => {
-      const listToChange = [4, 7, 89, 4, 6, 8, 3];
-
-      const expected = [8, 7, 89, 8, 6, 8, 3];
-
-      Part1.replaceInList(listToChange, 4, 8);
-
-      expect(listToChange).toEqual(expected);
-    });
-
-  });
-
-  describe('groups', () => {
-
-    it('should return the groups of numbers', () => {
-      const listToGroup = [1, 1, 5, 6, 6, 6, 8, 9, 9, 652, 652];
-      const expected = [[1, 1], [5], [6, 6, 6], [8], [9, 9], [652, 652]];
-
-      const actual = Part1.groups(listToGroup);
-
-      expect(actual).toEqual(expected);
-    });
-
-  });
-
 });

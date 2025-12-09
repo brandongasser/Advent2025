@@ -13,6 +13,15 @@ describe('Day 8 Parser', () => {
       expect(actual).toEqual(expected);
     });
 
+    it('should parse the input for part 2', () => {
+      const testInput = '15,734,50\n62,7,234';
+      const expected: [number, number, number][] = [[ 15, 734, 50 ], [ 62, 7, 234 ]];
+
+      const actual = Parser.parse(testInput, 2);
+
+      expect(actual).toEqual(expected);
+    });
+
   });
 
 });
