@@ -14,24 +14,20 @@ export function pressButton(lightState: IndicatorLights, button: Button): Indica
 }
 
 export function solveMachine(machine: Machine): number {
-  const visitedStates: string[] = [];
-  function helper(lightState: IndicatorLights, moves: number): number {
-    const key = lightState.join('');
-
+  function helper(lightState: IndicatorLights, buttons: Button[], moves: number): number {
     if (lightState.filter(light => light === '#').length === 0) {
       return moves;
     }
 
-    if (visitedStates.includes(key)) {
-      return 999999999;
+    let min = 99999;
+    for (let i = 0; i < buttons.length; i++) {
+      min = Math.min(min, helper(pressButton(lightState, buttons[i]), buttons.slice(i + 1), moves + 1));
     }
 
-    visitedStates.push(key);
-
-    return Math.min(...machine.buttons.map(button => helper(pressButton(lightState, button), moves + 1)));
+    return min;
   }
 
-  return helper(machine.indicatorLights, 0);
+  return helper(machine.indicatorLights, machine.buttons, 0);
 }
 
 export function part1(input: Machine[]): number {
