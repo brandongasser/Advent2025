@@ -11,26 +11,10 @@ describe('Day 10 Part 2', () => {
 
   describe('part2', () => {
 
-    it('should return the correct answer', () => {
-      const actual = Part2.part2(testInput);
+    it('should return the correct answer', async () => {
+      const actual = await Part2.part2(testInput);
 
       expect(actual).toEqual(33);
-    });
-
-  });
-
-  describe('solveMachine', () => {
-
-    fit('shold return the minimum button presses for a machine', () => {
-      const machine: Machine = {
-        indicatorLights: ['.', '#', '#', '.'],
-        buttons: [[3], [1, 3], [2], [2, 3], [0, 2], [0, 1]],
-        joltage: [3, 5, 4, 7]
-      }
-
-      const actual = Part2.solveMachine(machine);
-
-      expect(actual).toEqual(10);
     });
 
   });
