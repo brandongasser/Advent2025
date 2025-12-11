@@ -3,7 +3,7 @@ import { parse } from './parser';
 import { part1 } from './part-1';
 import { part2 } from './part-2';
 
-function main() {
+async function main() {
   const input = readFileSync('inputs/day-10.txt').toString();
   try {
     const startTime = Date.now();
@@ -20,7 +20,7 @@ function main() {
   try {
     const startTime = Date.now();
     const part2Input = parse(input, 2);
-    const part2Answer = part2(part2Input);
+    const part2Answer = await part2(part2Input);
     const endTime = Date.now();
     console.log(`Day 10 Part 2 Answer: ${part2Answer}`);
     console.log(`Day 10 Part 2 Run Time: ${endTime - startTime}ms`);
